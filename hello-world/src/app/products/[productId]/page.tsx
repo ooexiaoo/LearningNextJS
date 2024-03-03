@@ -1,7 +1,17 @@
+import { notFound } from "next/navigation";
+
 export default function ProductDetails({
   params,
 }: {
-  params: { productId: string };
+  params: { productId: string; };
 }) {
-  return <h1>product ID 1 Details {params.productId}</h1>;
+  if (parseInt(params.productId) > 500) {
+    notFound();
+  }
+  return (
+    <h1>
+      {" "}
+      Review {params.productId} product ID
+    </h1>
+  );
 }
